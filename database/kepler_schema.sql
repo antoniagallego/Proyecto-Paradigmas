@@ -1,7 +1,6 @@
 -- ============================================================
 --  PROYECTO KEPLER — Base de datos GROUND
 --  Sistema: Voyager IX → HERMES → ATLAS → GROUND
---  Motor: MySQL 8.0+
 -- ============================================================
 
 CREATE DATABASE IF NOT EXISTS kepler_ground
