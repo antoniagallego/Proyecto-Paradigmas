@@ -1,0 +1,123 @@
+version: '3.9'
+
+# ============================================================
+#  PROYECTO KEPLER — Sistema Distribuido
+#  Flujo: VOYAGER-IX → HERMES → ATLAS → GROUND → MySQL
+# ============================================================
+
+services:
+
+  # ----------------------------------------------------------
+  # MySQL — Base de datos de GROUND
+  # ----------------------------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: kepler-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: kepler
+      MYSQL_USER: kepler
+      MYSQL_PASSWORD: kepler123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./ground/src/main/resources/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - kepler-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "kepler", "-pkepler123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------
+  # VOYAGER IX — Motor de Inferencia Lógica (Prolog)
+  # Primer nodo del flujo
+  # ----------------------------------------------------------
+  voyager-ix:
+    build: ./voyager-ix
+    container_name: kepler-voyager-ix
+    ports:
+      - "8000:8000"
+    environment:
+      - HERMES_URL=http://hermes:8001
+    networks:
+      - kepler-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8000/api/status || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------
+  # HERMES — Satélite de Retransmisión SHA-256 (Haskell)
+  # Segundo nodo del flujo
+  # ----------------------------------------------------------
+  hermes:
+    build: ./hermes
+    container_name: kepler-hermes
+    ports:
+      - "8001:8001"
+    environment:
+      - ATLAS_URL=http://atlas:8002
+    networks:
+      - kepler-net
+    depends_on:
+      - voyager-ix
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8001/api/status || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------
+  # ATLAS — Estación de Coordinación (Java/Spring Boot)
+  # Tercer nodo del flujo
+  # ----------------------------------------------------------
+  atlas:
+    build: ./atlas
+    container_name: kepler-atlas
+    ports:
+      - "8002:8002"
+    environment:
+      - GROUND_URL=http://ground:8003
+    networks:
+      - kepler-net
+    depends_on:
+      - hermes
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8002/api/status || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------
+  # GROUND — Sistema de Persistencia MySQL (Scala)
+  # Cuarto nodo del flujo — persiste en MySQL
+  # ----------------------------------------------------------
+  ground:
+    build: ./ground
+    container_name: kepler-ground
+    ports:
+      - "8003:8003"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=kepler
+      - DB_USER=kepler
+      - DB_PASS=kepler123
+    networks:
+      - kepler-net
+    depends_on:
+      mysql:
+        condition: service_healthy
+      atlas:
+        condition: service_started
+
+networks:
+  kepler-net:
+    driver: bridge
+
+volumes:
+  mysql-data:

@@ -1,0 +1,35 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\ground_2.13-1.0.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\AtlasPayload$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\AtlasPayload$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\AtlasPayload.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\AtlasPayload.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\DatabaseService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\DatabaseService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\GroundApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\GroundApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\GroundApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\GroundApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\GroundResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\GroundResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\GroundResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\GroundResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\JsonFormats$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\JsonFormats$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\JsonFormats$AtlasPayloadFormat$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\JsonFormats$AtlasPayloadFormat$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\JsonFormats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\JsonFormats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\VoyagerReport$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\VoyagerReport$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com\kepler\ground\VoyagerReport.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\com\kepler\ground\VoyagerReport.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	init.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\galle\Proyecto-Paradigmas\ground\target\scala-2.13\classes\init.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
